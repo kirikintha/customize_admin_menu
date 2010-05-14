@@ -1,0 +1,137 @@
+/* $Id: admin_menu_alt.css,v 1.11 2008/09/08 10:12:04 frjo Exp $ */
+
+/* Alternative Admin menu CSS by Fredrik Jonsson fredrik at combonet dot se */
+
+/* Admin menu */
+#admin-menu li {
+  letter-spacing:1px;
+  width:85px;
+}
+
+#admin-menu li.admin-menu-icon a {
+}
+
+#admin-menu li.admin-menu-action a {
+}
+
+/* all lists */
+#admin-menu ul a {
+  height:21px;
+  padding:4px 13px 4px 8px;
+}
+
+#admin-menu ul ul a {
+}
+
+/* all list items */
+#admin-menu li li {
+  filter:Alpha(opacity=100);
+  opacity: 1;
+}
+
+#admin-menu li li a {
+}
+
+/* second-level lists */
+#admin-menu li ul {
+}
+
+#admin-menu > ul > li > ul {
+}
+
+/* third-and-above-level lists */
+#admin-menu li li.expandable ul {
+}
+
+/* first level hovering */
+#admin-menu > ul > li:hover {
+  
+}
+
+#admin-menu li.admin-menu-icon a {
+  padding:8px 8px 4px;
+}
+
+#admin-menu > ul > li.admin-menu-icon:hover a {
+}
+
+#admin-menu > ul > li:hover > a {
+}
+
+/* second-and-more-level hovering */
+#admin-menu li li.expandable {
+}
+
+#admin-menu li li.expandable:hover {
+}
+
+#admin-menu li li:hover,
+#admin-menu li li.iehover {
+}
+
+#admin-menu li li:hover a,
+#admin-menu li li.expandable:hover li:hover a,
+#admin-menu li li.expandable:hover li.expandable:hover li:hover a,
+#admin-menu li li.expandable:hover li.expandable:hover li.expandable:hover li:hover a {
+}
+
+#admin-menu li li.expandable:hover a,
+#admin-menu li li.expandable:hover li.expandable:hover a,
+#admin-menu li li.expandable:hover li.expandable:hover li.expandable:hover a {
+}
+
+#admin-menu li li.expandable:hover li a,
+#admin-menu li li.expandable:hover li.expandable:hover li a,
+#admin-menu li li.expandable:hover li.expandable:hover li.expandable:hover li a {
+}
+
+/**
+ * Icons
+ */
+
+#admin-menu li.comments {
+  top:0px !important;
+  border-bottom:none;
+}
+
+#admin-menu li.content-management {
+  background: url(../icons/world_go.png) 8px 8px no-repeat;
+  padding-left:27px;
+}
+
+#admin-menu li.site-building {
+  background: url(../icons/building.png) 9px 7px no-repeat;
+  padding-left:27px;
+}
+
+#admin-menu li.site-configuration {
+  background: url(../icons/bricks.png) 9px 7px no-repeat;
+  padding-left:27px;
+}
+
+#admin-menu li.user-management {
+  background: url(../icons/user_go.png) 9px 7px no-repeat;
+  padding-left:27px;
+}
+
+#admin-menu li.reports {
+  background: url(../icons/report.png) 9px 7px no-repeat;
+  padding-left:27px;
+}
+
+#admin-menu li.advanced-help,
+#admin-menu li.help {
+  background: url(../icons/help.png) 9px 7px no-repeat;
+  padding-left:27px;
+  border: 0px;
+}
+
+#admin-menu li.rules {
+  background: url(../icons/application_cascade.png) 9px 7px no-repeat;
+  padding-left:27px;
+}
+
+#admin-menu li.generate-items {
+  background: url(../icons/brick_add.png) 9px 7px no-repeat;
+  padding-left:27px;
+}

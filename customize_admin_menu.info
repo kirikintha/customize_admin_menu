@@ -1,0 +1,4 @@
+name        = "Customize Admin Menu"
+description = "This is a helper module that allows you to customize the Admin menu, without any strange hacks."
+package     = "PHTools"
+core        = "6.x"
