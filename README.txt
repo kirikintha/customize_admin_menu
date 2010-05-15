@@ -1,0 +1,1 @@
+Customize your Drupal Admin menu with this module.
