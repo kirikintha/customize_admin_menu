@@ -4,8 +4,7 @@
 
 /* Admin menu */
 #admin-menu li {
-  letter-spacing:1px;
-  width:85px;
+  font-size: 10px;
 }
 
 #admin-menu li.admin-menu-icon a {
@@ -16,11 +15,14 @@
 
 /* all lists */
 #admin-menu ul a {
-  height:21px;
-  padding:4px 13px 4px 8px;
+  height:20px;
+  padding:8px 13px 2px 8px;
 }
 
 #admin-menu ul ul a {
+  height: auto;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 /* all list items */
@@ -41,6 +43,9 @@
 
 /* third-and-above-level lists */
 #admin-menu li li.expandable ul {
+  position: absolute;
+  top: 0;
+  margin-top: 0;
 }
 
 /* first level hovering */
@@ -60,6 +65,7 @@
 
 /* second-and-more-level hovering */
 #admin-menu li li.expandable {
+  position: relative;
 }
 
 #admin-menu li li.expandable:hover {
