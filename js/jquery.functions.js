@@ -13,6 +13,7 @@ $(document).ready(function() {
     } );
     
     //Hover Intent for admin, this makes the darn thing understand your hover better
+    //@todo this seems bloody buggy, must work on this
     $('#admin-menu li').bind( 'hover', { speed:0, delay:750 }, function() {
       // Stop the timer.
       clearTimeout(this.sfTimer);
