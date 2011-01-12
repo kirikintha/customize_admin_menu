@@ -1,19 +1,14 @@
-/* $Id: admin_menu_alt.css,v 1.11 2008/09/08 10:12:04 frjo Exp $ */
-
 /* Alternative Admin menu CSS by Paul Huntsberger paul@bluetent.com */
-
 body.admin-menu {
-margin-top:40px !important;
+  margin-top:40px !important;
 }
 
 /* Admin menu */
 #admin-menu li {
-<<<<<<< HEAD
-  letter-spacing:1px !important;
-  width:85px;
-=======
   font-size: 10px;
->>>>>>> 58f17abcba082b661745ce45b9610a707af03375
+  background-position: 8px 50% !important;
+  background-repeat: no-repeat !important;
+  padding-left:27px;
 }
 
 #admin-menu li.admin-menu-icon a {
@@ -25,7 +20,7 @@ margin-top:40px !important;
 /* all lists */
 #admin-menu ul a {
   height:20px;
-  padding:8px 13px 2px 8px;
+  padding:10px 13px 2px 8px;
 }
 
 #admin-menu ul ul a {
@@ -66,43 +61,39 @@ margin-top:40px !important;
   padding:8px 8px 4px;
 }
 
-#admin-menu > ul > li.admin-menu-icon:hover a {
-}
-
-#admin-menu > ul > li:hover > a {
-}
-
 /* second-and-more-level hovering */
 #admin-menu li li.expandable {
   position: relative;
 }
 
-#admin-menu li li.expandable:hover {
-}
-
-#admin-menu li li:hover,
-#admin-menu li li.iehover {
-}
-
-#admin-menu li li:hover a,
-#admin-menu li li.expandable:hover li:hover a,
-#admin-menu li li.expandable:hover li.expandable:hover li:hover a,
-#admin-menu li li.expandable:hover li.expandable:hover li.expandable:hover li:hover a {
-}
-
-#admin-menu li li.expandable:hover a,
-#admin-menu li li.expandable:hover li.expandable:hover a,
-#admin-menu li li.expandable:hover li.expandable:hover li.expandable:hover a {
-}
-
-#admin-menu li li.expandable:hover li a,
-#admin-menu li li.expandable:hover li.expandable:hover li a,
-#admin-menu li li.expandable:hover li.expandable:hover li.expandable:hover li a {
-}
-
 /**
  * Icons
  */
+
+#admin-menu li.admin-menu-icon {
+  padding-left:0px;
+}
+
+#admin-menu li.list {
+  background-image: url(../images/edit-find-replace.png);
+}
+
+#admin-menu li.import {
+  background-image: url(../images/document-new.png);
+}
+
+#admin-menu li.export {
+  background-image: url(../images/document-save.png);
+}
+
+#admin-menu li.settings {
+  background-image: url(../images/emblem-system.png);
+}
+
+#admin-menu li.add,
+#admin-menu li.create-content li {
+  background-image: url(../images/list-add.png);
+}
 
 #admin-menu li.comments {
   top:0px !important;
@@ -110,43 +101,47 @@ margin-top:40px !important;
 }
 
 #admin-menu li.content-management {
-  background: url(../icons/world_go.png) 8px 8px no-repeat;
-  padding-left:27px;
+  background-image: url(../images/accessories-text-editor.png);
 }
 
 #admin-menu li.site-building {
-  background: url(../icons/building.png) 9px 7px no-repeat;
-  padding-left:27px;
+  background-image: url(../images/applications-development.png);
 }
 
 #admin-menu li.site-configuration {
-  background: url(../icons/bricks.png) 9px 7px no-repeat;
-  padding-left:27px;
+  background-image: url(../images/preferences-system.png);
 }
 
 #admin-menu li.user-management {
-  background: url(../icons/user_go.png) 9px 7px no-repeat;
-  padding-left:27px;
+  background-image: url(../images/system-users.png);
 }
 
 #admin-menu li.reports {
-  background: url(../icons/report.png) 9px 7px no-repeat;
-  padding-left:27px;
+  background: url(../images/applications-internet.png);
 }
 
 #admin-menu li.advanced-help,
 #admin-menu li.help {
-  background: url(../icons/help.png) 9px 7px no-repeat;
-  padding-left:27px;
+  background-image: url(../images/help-browser.png);
   border: 0px;
 }
 
 #admin-menu li.rules {
-  background: url(../icons/application_cascade.png) 9px 7px no-repeat;
-  padding-left:27px;
+  background-image: url(../images/preferences-system-windows.png);
 }
 
 #admin-menu li.generate-items {
-  background: url(../icons/brick_add.png) 9px 7px no-repeat;
-  padding-left:27px;
+  background-image: url(../images/applications-other.png);
+}
+
+#admin-menu li.admin-menu-logout {
+  background-image: url(../images/system-log-out.png);
+}
+
+#admin-menu li.status-report {
+  background-image: url(../images/software-update-available.png);
+}
+
+#admin-menu li.reports li.recent-log-entries {
+  background-image: url(../images/system-search.png);
 }
