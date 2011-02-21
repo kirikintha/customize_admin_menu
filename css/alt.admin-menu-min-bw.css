@@ -1,0 +1,147 @@
+/* Alternative Admin menu CSS by Paul Huntsberger paul@bluetent.com */
+body.admin-menu {
+  margin-top:40px !important;
+}
+
+/* Admin menu */
+#admin-menu li {
+  font-size: 10px;
+  background-position: 8px 50% !important;
+  background-repeat: no-repeat !important;
+  padding-left:27px;
+}
+
+#admin-menu li.global-admin {
+  padding-left: 27px !important;
+}
+
+#admin-menu li.global-admin > a {
+  height: auto;
+  padding-bottom: 6px;
+  padding-top: 6px;
+  margin-left:-27px;
+}
+
+#admin-menu li.global-admin > a > img {
+  display: block;
+  float: left;
+  margin: -3px 12px 4px -2px;
+  padding: 0;
+  vertical-align: middle !important;
+}
+
+#admin-menu li.admin-menu-action a {
+}
+
+/* all lists */
+#admin-menu ul a {
+  height:20px;
+  padding:10px 13px 2px 8px;
+}
+
+#admin-menu ul ul a {
+  height: auto;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+/* all list items */
+#admin-menu li li {
+  filter:Alpha(opacity=100);
+  opacity: 1;
+  width: 170px;
+}
+
+#admin-menu li li a {
+}
+
+/* second-level lists */
+#admin-menu li ul {
+}
+
+#admin-menu > ul > li > ul {
+}
+
+/* third-and-above-level lists */
+#admin-menu li li.expandable ul {
+  position: absolute;
+  top: 0;
+  margin-top: 0;
+}
+
+/* first level hovering */
+#admin-menu > ul > li:hover {
+
+}
+
+#admin-menu li.admin-menu-icon a {
+  padding:8px 8px 4px;
+}
+
+/* second-and-more-level hovering */
+#admin-menu li li.expandable {
+  position: relative;
+  background-color:#202020;
+  background-image:none;
+}
+
+#admin-menu li li.expandable > a {
+  background-image: url(../images/gray-scale/media-playback-start.png);
+  background-position: 97% center !important;
+  background-repeat: no-repeat;
+}
+
+/**
+ * Icons
+ */
+
+#admin-menu li.admin-menu-icon {
+  padding-left:0px;
+}
+
+#admin-menu li.content-management {
+  background-image: url(../images/gray-scale/accessories-text-editor.png) !important;
+}
+
+#admin-menu li.site-management {
+  background-image: url(../images/gray-scale/applications-internet.png) !important;
+}
+
+#admin-menu li.site-building {
+  background-image: url(../images/gray-scale/applications-development.png) !important;
+}
+
+#admin-menu li.site-configuration {
+  background-image: url(../images/gray-scale/preferences-system.png) !important;
+}
+
+#admin-menu li.user-management {
+  background-image: url(../images/gray-scale/system-users.png) !important;
+}
+
+#admin-menu li.advanced-help,
+#admin-menu li.help {
+  background-image: url(../images/gray-scale/help-browser.png) !important;
+  border: 0px;
+  background-color: transparent;
+}
+
+#admin-menu li.rules {
+  background-image: url(../images/gray-scale/preferences-system-windows.png) !important;
+}
+
+#admin-menu li.generate-items {
+  background-image: url(../images/gray-scale/applications-other.png) !important;
+}
+
+#admin-menu li.admin-menu-logout {
+  background-image: url(../images/gray-scale/system-log-out.png) !important;
+}
+
+#admin-menu li.reports {
+  background-image: url(../images/color/edit-copy.png) !important;
+}
+
+#admin-menu li.reports li.recent-log-entries {
+  background-image: url(../images/gray-scale/system-search.png) !important;
+}

@@ -1,0 +1,4 @@
+/* Alternative Admin menu CSS by Paul Huntsberger paul@bluetent.com */
+div.admin-menu-default li.site-management {
+  display: none;
+}

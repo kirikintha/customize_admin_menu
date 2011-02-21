@@ -1,0 +1,264 @@
+/* Alternative Admin menu CSS by Paul Huntsberger paul@bluetent.com */
+body.admin-menu {
+  margin-top:40px !important;
+}
+
+/* Admin menu */
+#admin-menu li {
+  font-size: 10px;
+  background-position: 8px 50% !important;
+  background-repeat: no-repeat !important;
+  padding-left:27px;
+}
+
+#admin-menu li.global-admin {
+  padding-left: 27px !important;
+}
+
+#admin-menu li.global-admin > a {
+  height: auto;
+  padding-bottom: 6px;
+  padding-top: 6px;
+  margin-left:-27px;
+}
+
+#admin-menu li.global-admin > a > img {
+  display: block;
+  float: left;
+  margin: -3px 12px 4px -2px;
+  padding: 0;
+  vertical-align: middle !important;
+}
+
+#admin-menu li.admin-menu-action a {
+}
+
+/* all lists */
+#admin-menu ul a {
+  height:20px;
+  padding:10px 13px 2px 8px;
+}
+
+#admin-menu ul ul a {
+  height: auto;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+/* all list items */
+#admin-menu li li {
+  filter:Alpha(opacity=100);
+  opacity: 1;
+  width: 170px;
+}
+
+#admin-menu li li a {
+}
+
+/* second-level lists */
+#admin-menu li ul {
+}
+
+#admin-menu > ul > li > ul {
+}
+
+/* third-and-above-level lists */
+#admin-menu li li.expandable ul {
+  position: absolute;
+  top: 0;
+  margin-top: 0;
+}
+
+/* first level hovering */
+#admin-menu > ul > li:hover {
+  
+}
+
+#admin-menu li.admin-menu-icon a {
+  padding:8px 8px 4px;
+}
+
+/* second-and-more-level hovering */
+#admin-menu li li.expandable {
+  position: relative;
+  background-color:#202020;
+  background-image:none;
+}
+
+#admin-menu li li.expandable > a {
+  background-image: url(../images/gray-scale/media-playback-start.png);
+  background-position: 97% center !important;
+  background-repeat: no-repeat;
+}
+
+/**
+ * Icons
+ */
+
+#admin-menu li.admin-menu-icon {
+  padding-left:0px;
+}
+
+#admin-menu li.list {
+  background-image: url(../images/gray-scale/edit-find-replace.png) !important;
+}
+
+#admin-menu li.restore,
+#admin-menu li.import {
+  background-image: url(../images/gray-scale/window-new.png) !important;
+}
+
+#admin-menu li.backup,
+#admin-menu li.export {
+  background-image: url(../images/gray-scale/document-save.png) !important;
+}
+
+#admin-menu li.settings {
+  background-image: url(../images/gray-scale/emblem-system.png) !important;
+}
+
+#admin-menu li.reports,
+#admin-menu li.edit {
+  background-image: url(../images/gray-scale/edit-copy.png) !important;
+}
+
+#admin-menu li.remove {
+  background-image: url(../images/gray-scale/list-remove.png) !important;
+}
+
+#admin-menu li.date {
+  background-image: url(../images/gray-scale/office-calendar.png) !important;
+}
+
+#admin-menu li.picture {
+  background-image: url(../images/gray-scale/image-x-generic.png) !important;
+}
+
+#admin-menu li.admin-menu-comments {
+  background-image: url(../images/gray-scale/internet-group-chat.png) !important;
+}
+
+#admin-menu li.admin-menu-rss {
+  background-image: url(../images/gray-scale/internet-news-reader.png) !important;
+}
+
+#admin-menu li.add,
+#admin-menu li.create-content li {
+  background-image: url(../images/gray-scale/list-add.png) !important;
+}
+
+#admin-menu li.comments {
+  top:0px !important;
+  border-bottom:none;
+}
+
+#admin-menu li.manage-fields,
+#admin-menu li.content-types {
+  background-image: url(../images/gray-scale/applications-accessories.png) !important;
+}
+
+#admin-menu li.content,
+#admin-menu li.content-management {
+  background-image: url(../images/gray-scale/accessories-text-editor.png) !important;
+}
+
+#admin-menu li.site-management {
+  background-image: url(../images/gray-scale/applications-internet.png) !important;
+}
+
+#admin-menu li.flush-all-caches {
+  background-image: url(../images/gray-scale/user-trash.png) !important;
+}
+
+#admin-menu li.site-building {
+  background-image: url(../images/gray-scale/applications-development.png) !important;
+}
+
+#admin-menu li.site-configuration {
+  background-image: url(../images/gray-scale/preferences-system.png) !important;
+}
+
+#admin-menu li.users,
+#admin-menu li.user-management {
+  background-image: url(../images/gray-scale/system-users.png) !important;
+}
+
+#admin-menu li.access-rules {
+  background-image: url(../images/gray-scale/network-wireless-encrypted.png) !important;
+}
+
+#admin-menu li.permissions {
+  background-image: url(../images/gray-scale/system-lock-screen.png) !important;
+}
+
+#admin-menu li.advanced-help,
+#admin-menu li.help {
+  background-image: url(../images/gray-scale/help-browser.png) !important;
+  border: 0px;
+  background-color: transparent;
+}
+
+#admin-menu li.rules {
+  background-image: url(../images/gray-scale/preferences-system-windows.png) !important;
+}
+
+#admin-menu li.generate-items {
+  background-image: url(../images/gray-scale/applications-other.png) !important;
+}
+
+#admin-menu li.admin-menu-logout {
+  background-image: url(../images/gray-scale/system-log-out.png) !important;
+}
+
+#admin-menu li.status-report {
+  background-image: url(../images/gray-scale/utilities-system-monitor.png) !important;
+}
+
+#admin-menu li.reports li.recent-log-entries {
+  background-image: url(../images/gray-scale/system-search.png) !important;
+}
+
+#admin-menu li.backup-and-migrate {
+  background-image: url(../images/gray-scale/system-file-manager.png) !important;
+}
+
+#admin-menu li.backup-and-migrate li.schedules {
+  background-image: url(../images/gray-scale/appointment-new.png) !important;
+}
+
+#admin-menu li.themes {
+  background-image: url(../images/gray-scale/preferences-desktop-wallpaper.png) !important;
+}
+
+#admin-menu li.modules {
+  background-image: url(../images/gray-scale/system-installer.png) !important;
+}
+
+#admin-menu li.site-building li.menus {
+  background-image: url(../images/gray-scale/applications-system.png) !important;
+}
+
+#admin-menu li.fields,
+#admin-menu li.site-building li.blocks {
+  background-image: url(../images/gray-scale/document-properties.png) !important;
+}
+
+#admin-menu li.taxonomy {
+  background-image: url(../images/gray-scale/preferences-desktop-font.png) !important;
+}
+
+#admin-menu li.published-comments {
+  background-image: url(../images/gray-scale/application-certificate.png) !important;
+}
+
+#admin-menu li.approval-queue {
+  background-image: url(../images/gray-scale/edit-find-replace.png) !important;
+}
+
+#admin-menu li.dashboard {
+  background-image: url(../images/gray-scale/preferences-desktop.png) !important;
+}
+
+#admin-menu li.location {
+  background-image: url(../images/gray-scale/preferences-desktop-locale.png) !important;
+}

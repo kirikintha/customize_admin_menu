@@ -11,8 +11,23 @@ body.admin-menu {
   padding-left:27px;
 }
 
+#admin-menu li.global-admin {
+  padding-left: 27px !important;
+}
 
-#admin-menu li.admin-menu-icon a {
+#admin-menu li.global-admin > a {
+  height: auto;
+  padding-bottom: 6px;
+  padding-top: 6px;
+  margin-left:-27px;
+}
+
+#admin-menu li.global-admin > a > img {
+  display: block;
+  float: left;
+  margin: -3px 12px 4px -2px;
+  padding: 0;
+  vertical-align: middle !important;
 }
 
 #admin-menu li.admin-menu-action a {
@@ -34,6 +49,7 @@ body.admin-menu {
 #admin-menu li li {
   filter:Alpha(opacity=100);
   opacity: 1;
+  width: 170px;
 }
 
 #admin-menu li li a {
@@ -70,7 +86,7 @@ body.admin-menu {
 }
 
 #admin-menu li li.expandable > a {
-  background-image: url(../images/media-playback-start.png);
+  background-image: url(../images/color/media-playback-start.png);
   background-position: 97% center !important;
   background-repeat: no-repeat;
 }
@@ -84,50 +100,51 @@ body.admin-menu {
 }
 
 #admin-menu li.list {
-  background-image: url(../images/edit-find-replace.png) !important;
+  background-image: url(../images/color/edit-find-replace.png) !important;
 }
 
 #admin-menu li.restore,
 #admin-menu li.import {
-  background-image: url(../images/window-new.png) !important;
+  background-image: url(../images/color/window-new.png) !important;
 }
 
 #admin-menu li.backup,
 #admin-menu li.export {
-  background-image: url(../images/document-save.png) !important;
+  background-image: url(../images/color/document-save.png) !important;
 }
 
 #admin-menu li.settings {
-  background-image: url(../images/emblem-system.png) !important;
+  background-image: url(../images/color/emblem-system.png) !important;
 }
 
+#admin-menu li.reports,
 #admin-menu li.edit {
-  background-image: url(../images/edit-copy.png) !important;
+  background-image: url(../images/color/edit-copy.png) !important;
 }
 
 #admin-menu li.remove {
-  background-image: url(../images/list-remove.png) !important;
+  background-image: url(../images/color/list-remove.png) !important;
 }
 
 #admin-menu li.date {
-  background-image: url(../images/office-calendar.png) !important;
+  background-image: url(../images/color/office-calendar.png) !important;
 }
 
 #admin-menu li.picture {
-  background-image: url(../images/image-x-generic.png) !important;
+  background-image: url(../images/color/image-x-generic.png) !important;
 }
 
 #admin-menu li.admin-menu-comments {
-  background-image: url(../images/internet-group-chat.png) !important;
+  background-image: url(../images/color/internet-group-chat.png) !important;
 }
 
 #admin-menu li.admin-menu-rss {
-  background-image: url(../images/internet-news-reader.png) !important;
+  background-image: url(../images/color/internet-news-reader.png) !important;
 }
 
 #admin-menu li.add,
 #admin-menu li.create-content li {
-  background-image: url(../images/list-add.png) !important;
+  background-image: url(../images/color/list-add.png) !important;
 }
 
 #admin-menu li.comments {
@@ -137,98 +154,111 @@ body.admin-menu {
 
 #admin-menu li.manage-fields,
 #admin-menu li.content-types {
-  background-image: url(../images/applications-accessories.png) !important;
+  background-image: url(../images/color/applications-accessories.png) !important;
 }
 
 #admin-menu li.content,
 #admin-menu li.content-management {
-  background-image: url(../images/accessories-text-editor.png) !important;
+  background-image: url(../images/color/accessories-text-editor.png) !important;
+}
+
+#admin-menu li.site-management {
+  background-image: url(../images/color/applications-internet.png) !important;
+}
+
+#admin-menu li.flush-all-caches {
+  background-image: url(../images/color/user-trash.png) !important;
 }
 
 #admin-menu li.site-building {
-  background-image: url(../images/applications-development.png);
+  background-image: url(../images/color/applications-development.png) !important;
 }
 
 #admin-menu li.site-configuration {
-  background-image: url(../images/preferences-system.png);
+  background-image: url(../images/color/preferences-system.png) !important;
 }
 
+#admin-menu li.users,
 #admin-menu li.user-management {
-  background-image: url(../images/system-users.png);
+  background-image: url(../images/color/system-users.png) !important;
 }
 
-#admin-menu li.reports {
-  background: url(../images/applications-internet.png);
+#admin-menu li.access-rules {
+  background-image: url(../images/color/network-wireless-encrypted.png) !important;
+}
+
+#admin-menu li.permissions {
+  background-image: url(../images/color/system-lock-screen.png) !important;
 }
 
 #admin-menu li.advanced-help,
 #admin-menu li.help {
-  background-image: url(../images/help-browser.png);
+  background-image: url(../images/color/help-browser.png) !important;
   border: 0px;
   background-color: transparent;
 }
 
 #admin-menu li.rules {
-  background-image: url(../images/preferences-system-windows.png);
+  background-image: url(../images/color/preferences-system-windows.png) !important;
 }
 
 #admin-menu li.generate-items {
-  background-image: url(../images/applications-other.png);
+  background-image: url(../images/color/applications-other.png) !important;
 }
 
 #admin-menu li.admin-menu-logout {
-  background-image: url(../images/system-log-out.png);
+  background-image: url(../images/color/system-log-out.png) !important;
 }
 
 #admin-menu li.status-report {
-  background-image: url(../images/software-update-available.png);
+  background-image: url(../images/color/utilities-system-monitor.png) !important;
 }
 
 #admin-menu li.reports li.recent-log-entries {
-  background-image: url(../images/system-search.png);
+  background-image: url(../images/color/system-search.png) !important;
 }
 
 #admin-menu li.backup-and-migrate {
-  background-image: url(../images/system-file-manager.png) !important;
+  background-image: url(../images/color/system-file-manager.png) !important;
 }
 
 #admin-menu li.backup-and-migrate li.schedules {
-  background-image: url(../images/appointment-new.png);
+  background-image: url(../images/color/appointment-new.png) !important;
 }
 
 #admin-menu li.themes {
-  background-image: url(../images/preferences-desktop-wallpaper.png) !important;
+  background-image: url(../images/color/preferences-desktop-wallpaper.png) !important;
 }
 
 #admin-menu li.modules {
-  background-image: url(../images/system-installer.png) !important;
+  background-image: url(../images/color/system-installer.png) !important;
 }
 
 #admin-menu li.site-building li.menus {
-  background-image: url(../images/applications-system.png) !important;
+  background-image: url(../images/color/applications-system.png) !important;
 }
 
 #admin-menu li.fields,
 #admin-menu li.site-building li.blocks {
-  background-image: url(../images/document-properties.png) !important;
+  background-image: url(../images/color/document-properties.png) !important;
 }
 
 #admin-menu li.taxonomy {
-  background-image: url(../images/preferences-desktop-font.png) !important;
+  background-image: url(../images/color/preferences-desktop-font.png) !important;
 }
 
 #admin-menu li.published-comments {
-  background-image: url(../images/application-certificate.png) !important;
+  background-image: url(../images/color/application-certificate.png) !important;
 }
 
 #admin-menu li.approval-queue {
-  background-image: url(../images/edit-find-replace.png) !important;
+  background-image: url(../images/color/edit-find-replace.png) !important;
 }
 
 #admin-menu li.dashboard {
-  background-image: url(../images/preferences-desktop.png) !important;
+  background-image: url(../images/color/preferences-desktop.png) !important;
 }
 
 #admin-menu li.location {
-  background-image: url(../images/preferences-desktop-locale.png) !important;
+  background-image: url(../images/color/preferences-desktop-locale.png) !important;
 }
