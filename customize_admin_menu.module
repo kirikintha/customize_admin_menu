@@ -1,8 +1,11 @@
 <?php
 /**
  * Customize Admin Menu
- * This is a lightweight jquery and CSS helpers for customixing the admin menu globally
- * This module doesn't do anything other than add some js and css files
+ * Version 2.0 is a more robust admin customization using js, css and link_alter to create a custom admin layout other than the default.
+ * You can choose to not use any of the admin customizations, minimal customizations, or a whole new
+ * admin menu layout!
+ * @version 6.x-2.0-beta1
+ * @file customize_admin_menu.module
  */
 
 //Define module path as a constant

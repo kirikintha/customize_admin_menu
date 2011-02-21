@@ -1,6 +1,6 @@
 name           = "Customize Admin Menu"
-description    = "This is a helper module that allows you to customize the Admin menu, without any strange hacks."
+description    = "This is a helper module that allows you to customize the Admin menu from the default implementation."
 dependencies[] = "admin_menu"
 package        = "PHBalanced Tools"
-version        = 6.x.1.1
+version        = 6.x-2.0-alpha1
 core           = "6.x"
