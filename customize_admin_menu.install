@@ -1,0 +1,83 @@
+<?php
+/**
+ * Define install constants
+ */
+//Set your module name here. This has to stay here, because the install does not invoke the whole module and playing around with includes is not a good idea on install
+define('INSTALL_MODULE_NAME', 'Customize Admin Menu');
+
+//@todo - add in a check for admin menu 1.8+. There are really big changes here, so this MUST be a requirement.
+/**
+ * Hook Requirements
+ * @internal This is where we will put the requirements for this module, so you can install it properly.
+ */
+function customize_admin_menu_requirements($phase) {
+  //Set requirements.
+  $requirements = array();
+  // Ensure translations don't break at install time
+  $t = get_t();
+  //Switch between phases.
+  switch ($phase) {
+    //Install and runtime both need to be annoying and warn of module incomatibility.
+    case 'install':
+    case 'runtime':
+          //Get the module information.
+          $modules = module_list(TRUE);
+          $path    = drupal_get_path('module', $modules['admin_menu']) . '/' . $modules['admin_menu'] . '.info';
+          $info    = drupal_parse_info_file($path);
+          //Parse version info.
+          $version = explode('-', $info['version']);
+          if (!strstr($version[0], '6.x')) {
+            $requirements['php']['description'] = $t('You are using an incompatible module for this version of Drupal.', array('%version' => '6.x'));
+            $requirements['php']['severity'] = REQUIREMENT_ERROR;
+          }
+          //Make sure we have an int.
+          $version[0] = (int) $version[0];
+          if ($version[0] < 1.8) {
+            $requirements['php']['description'] = $t('You MUST Administration Menu version %version or greater.', array('%version' => 1.8));
+            $requirements['php']['severity'] = REQUIREMENT_ERROR;
+          } else {
+            $requirements['php']['description'] = $t('Customize Admin Menu Compatibility with Admin Menu %version has been verified.', array('%version' => 1.8));
+            $requirements['php']['severity'] = REQUIREMENT_OK;  
+          }
+      break;
+  }
+  return $requirements;
+}
+
+/**
+ * Implementation of hook_install.
+ */
+function customize_admin_menu_install() {
+  //Set a message when we install the module
+  drupal_set_message( t('@module module has installed successfully. Please see README.txt for more information on this module.', array( '@module' => INSTALL_MODULE_NAME ) ) );
+}
+
+/**
+ * Implementation of hook_uninstall.
+ */
+function customize_admin_menu_uninstall() {
+  //Set a message when we uninstall the module.
+  drupal_set_message( t('@module module uninstalled successfully.', array( '@module' => INSTALL_MODULE_NAME ) ) );
+  //Delete all variables with the name customize_admin_menu.
+  $query = "DELETE FROM {variable} WHERE name LIKE 'customize_admin_menu%'";
+  db_query($query);
+}
+
+/**
+ * Implementation of hook_enable.
+ */
+function customize_admin_menu_enable() {
+  //Update module weight.
+  $sql = "UPDATE {system} SET weight = 100 WHERE name = 'custommize_admin_menu'";
+  db_query($sql);
+  //Set a message when we enable the module
+  drupal_set_message( t('@module module has been enabled successfully.', array( '@module' => INSTALL_MODULE_NAME ) ) );
+}
+
+/**
+ * Implementation of hook_disable.
+ */
+function customize_admin_menu_disable() {
+  //Set a message when we disable the module.
+  drupal_set_message( t('@module module has been disabled successfully.', array( '@module' => INSTALL_MODULE_NAME ) ) ); 
+}

@@ -62,7 +62,7 @@ function _customize_admin_menu_admin() {
   //Enable vertical tabs if the module is installed.
   $form['#pre_render'][] = 'vertical_tabs_form_pre_render';
   //Return system settings.
-  return system_settings_form( $form );
+  return system_settings_form($form);
 }
 
 /**
@@ -73,14 +73,11 @@ function _customize_admin_menu_admin_validate(&$form, $form_state) {
   module_load_include('inc', 'admin_menu');
   //If we are using the default form, wipe the admin menu and start over.
   if ($form_state['values']['customize_admin_menu_layout_settings'] == 0) {
-    variable_set('customize_admin_menu_rebuild_links', FALSE);
     //Wipe menu for rebuild.
     admin_menu_wipe();
-  } else {
-    variable_set('customize_admin_menu_rebuild_links', TRUE);
+  } else if ($form_state['values']['customize_admin_menu_layout_settings'] == 1) {
     //When we rebuild, we HAVE to set our own references here, so we can have some sort of easy relationship when we alter links later.
-    _admin_menu_rebuild_links();
+    admin_menu_rebuild_links(TRUE);
     _customize_admin_menu_references();
-    variable_set('admin_menu_rebuild_links', TRUE);
   }
 }

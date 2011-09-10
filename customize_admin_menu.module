@@ -2,29 +2,39 @@
 /**
  * Customize Admin Menu
  * Version 2.0 is a more robust admin customization using js, css and link_alter to create a custom admin layout other than the default.
- * You can choose to not use any of the admin customizations, minimal customizations, or a whole new
- * admin menu layout!
- * @version 6.x-2.0-beta1
+ * @todo - add in a check for admin menu 1.8+. There are really big changes here, so this MUST be a requirement.
+ * @todo - There is still a lame problem with switching between the default and custom options, I think what needs to happen is that the admin form redirects to a cache flushing cycle, like in the devel module.
+ * @version 6.x-2.0-alpha2
  * @file customize_admin_menu.module
  */
-
-//Define module path as a constant
-define( 'CUSTOMIZE_ADMIN_MENU_MODULE_PATH', drupal_get_path( 'module', 'customize_admin_menu' ) );
 
 /**
  * Implementation of hook_init()
  */
 function customize_admin_menu_init() {
+  //There is a really weird problem sometimes, that drupal_get_path(), when it is in a constant, line define('FOO', drupal_get_path())
+  $path = drupal_get_path('module', 'customize_admin_menu');
   //Add in Alt css
   $file = variable_get('customize_admin_menu_theme_settings', NULL);
   $file = (!empty($file)) ? variable_get('customize_admin_menu_theme_settings', NULL) : 'default.admin-menu.css';
-  drupal_add_css( CUSTOMIZE_ADMIN_MENU_MODULE_PATH .'/css/' .$file );
+  drupal_add_css($path.'/css/' .$file);
   //Add javascript, this adds ids and classes to the admin menu rendered elements.
-  drupal_add_js( CUSTOMIZE_ADMIN_MENU_MODULE_PATH .'/js/jquery.functions.js' );
+  drupal_add_js($path .'/js/jquery.functions.js');
   //Supress Admin Menu, for re-write.
   if (user_access('access administration menu') && variable_get('customize_admin_menu_layout_settings', NULL) == 1) {
     //Supress original admin menu output.
     module_invoke('admin_menu', 'suppress');
+  }
+}
+
+/**
+ * Implementation of hook_exit().
+ */
+function customize_admin_menu_exit() {
+  // Check for the flag indicating that we need to rebuild.
+  if (admin_menu_rebuild_links()) {
+    module_load_include('inc', 'admin_menu');
+    _admin_menu_rebuild_links();
   }
 }
 
@@ -41,6 +51,7 @@ function customize_admin_menu_menu() {
     'position'         => 'right',
     'weight'           => -5,
     'page callback'    => 'system_settings_overview',
+    'access callback' => '_customize_admin_menu_access_callback',
     'access arguments' => array('access administration pages'),
     'file'             => 'system.admin.inc',
     'file path'        => drupal_get_path('module', 'system'),
@@ -59,6 +70,21 @@ function customize_admin_menu_menu() {
 }
 
 /**
+ * _customize_admin_menu_access_callback ($perm = 'access administration pages')
+ *  This allows us to turn the Site Management menu item on and off.
+ * @param type $perm
+ * @return type 
+ */
+function _customize_admin_menu_access_callback ($perm = 'access administration pages') {
+  //Supress our menu item if we are not using it.
+  if (user_access('access administration menu') && variable_get('customize_admin_menu_layout_settings', NULL) == 1) {
+    //Return our menu item if we have access.
+    return TRUE;
+  }
+  return FALSE;
+}
+
+/**
  * Implementation of hook_footer().
  */
 function customize_admin_menu_footer($main = 0) {
@@ -66,14 +92,7 @@ function customize_admin_menu_footer($main = 0) {
   if (!user_access('access administration menu')) {
     return;
   }
-  //Retain the following footer function as well, since we are overriding.
-  // Check for the flag indicating that we need to rebuild.
-  if (variable_get('admin_menu_rebuild_links', FALSE)) {
-    module_load_include('inc', 'admin_menu');
-    _admin_menu_rebuild_links();
-    //delete variables.
-    variable_del('admin_menu_rebuild_links');
-  }
+
   //Get our data tree from admin_menu
   $data = menu_tree_all_data('admin_menu');
   //Render our altered content.
@@ -89,40 +108,38 @@ function customize_admin_menu_footer($main = 0) {
  */
 function customize_admin_menu_menu_link_alter(&$item, $menu) {
   //If we are in the 'admin_menu' menu, then alter those links to re-group as defined here.
-  if ($item['module'] == 'admin_menu') {
+  if ($item['module'] == 'admin_menu' && variable_get('customize_admin_menu_layout_settings', NULL) == 1) {
     //If we are using the "Custom" layout - then use these overrides.
-    if (variable_get('customize_admin_menu_rebuild_links', FALSE)) {
-      $references = variable_get('customize_admin_menu_settings', array());
-      //If we have our menu item, then run it.
-      if (!empty($references['references']['root']['admin/site-management'])) {
-        //Root menu items.
-        $root = $references['references']['root'];
-        //Move menues to their new places in the admin_menu tree.
-        if ($item['options']['extra class'] == 'admin-menu-icon') {
-          //Admin menu generated menu for flush caches, all that to Site Management.
-          $item['plid'] = (int) $root['admin/site-management'];
-          $item['title'] =
-          $item['link_title'] =
-          t('!image !txt', array('!image' => $item['title'], '!txt' => '<div class="global-main-txt">Global Admin</div>'));
-          $item['weight'] = 100;
-          $item['options']['extra class'] .= ' global-admin';
-        }
-        //Use array paths of items to put them into the Site Management Root.
-        $find = array(
-          'admin/content/backup_migrate',
-          'admin/content/node-settings',
-          'admin/content/rss-publishing',
-          'admin/build',
-          'admin/settings',
-          'admin/generate',
-          'admin/reports',
-          'admin_menu/flush-cache',
-        );
-        if (in_array($item['link_path'], $find)) {
-          $item['plid'] = (int) $root['admin/site-management'];
-          if ($item['link_path'] == 'admin_menu/flush-cache') {
-            $item['weight'] = -100;
-          }
+    $references = variable_get('customize_admin_menu_settings', array());
+    //If we have our menu item, then run it.
+    if (!empty($references['references']['root']['admin/site-management'])) {
+      //Root menu items.
+      $root = $references['references']['root'];
+      //Move menues to their new places in the admin_menu tree.
+      if ($item['options']['extra class'] == 'admin-menu-icon') {
+        //Admin menu generated menu for flush caches, all that to Site Management.
+        $item['plid'] = (int) $root['admin/site-management'];
+        $item['title'] =
+        $item['link_title'] =
+        t('!image !txt', array('!image' => $item['title'], '!txt' => '<div class="global-main-txt">Global Admin</div>'));
+        $item['weight'] = 100;
+        $item['options']['extra class'] .= ' global-admin';
+      }
+      //Use array paths of items to put them into the Site Management Root.
+      $find = array(
+        'admin/content/backup_migrate',
+        'admin/content/node-settings',
+        'admin/content/rss-publishing',
+        'admin/build',
+        'admin/settings',
+        'admin/generate',
+        'admin/reports',
+        'admin_menu/flush-cache',
+      );
+      if (in_array($item['link_path'], $find)) {
+        $item['plid'] = (int) $root['admin/site-management'];
+        if ($item['link_path'] == 'admin_menu/flush-cache') {
+          $item['weight'] = -100;
         }
       }
     }
