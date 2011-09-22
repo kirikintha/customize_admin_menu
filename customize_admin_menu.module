@@ -12,14 +12,16 @@
  * Implementation of hook_init()
  */
 function customize_admin_menu_init() {
-  //There is a really weird problem sometimes, that drupal_get_path(), when it is in a constant, line define('FOO', drupal_get_path())
-  $path = drupal_get_path('module', 'customize_admin_menu');
-  //Add in Alt css
-  $file = variable_get('customize_admin_menu_theme_settings', NULL);
-  $file = (!empty($file)) ? variable_get('customize_admin_menu_theme_settings', NULL) : 'default.admin-menu.css';
-  drupal_add_css($path.'/css/' .$file);
-  //Add javascript, this adds ids and classes to the admin menu rendered elements.
-  drupal_add_js($path .'/js/jquery.functions.js');
+  if (user_access('access administration menu')) {
+    //There is a really weird problem sometimes, that drupal_get_path(), when it is in a constant, line define('FOO', drupal_get_path())
+    $path = drupal_get_path('module', 'customize_admin_menu');
+    //Add in Alt css
+    $file = variable_get('customize_admin_menu_theme_settings', NULL);
+    $file = (!empty($file)) ? variable_get('customize_admin_menu_theme_settings', NULL) : 'default.admin-menu.css';
+    drupal_add_css($path.'/css/' .$file);
+    //Add javascript, this adds ids and classes to the admin menu rendered elements.
+    drupal_add_js($path .'/js/jquery.functions.js');
+  }
   //Supress Admin Menu, for re-write.
   if (user_access('access administration menu') && variable_get('customize_admin_menu_layout_settings', NULL) == 1) {
     //Supress original admin menu output.
