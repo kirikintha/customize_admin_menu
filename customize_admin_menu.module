@@ -135,6 +135,7 @@ function customize_admin_menu_menu_link_alter(&$item, $menu) {
         'admin/generate',
         'admin/reports',
         'admin_menu/flush-cache',
+        'admin/rules',
       );
       if (in_array($item['link_path'], $find)) {
         $item['plid'] = (int) $root['admin/site-management'];
