@@ -128,6 +128,7 @@ function customize_admin_menu_menu_link_alter(&$item, $menu) {
         $item['options']['extra class'] .= ' global-admin';
       }
       //Use array paths of items to put them into the Site Management Root.
+      //@todo - turn paths into admin settings.
       $find = array(
         'admin/content/backup_migrate',
         'admin/content/node-settings',
@@ -138,6 +139,7 @@ function customize_admin_menu_menu_link_alter(&$item, $menu) {
         'admin/reports',
         'admin_menu/flush-cache',
         'admin/rules',
+        'admin/messaging',
       );
       if (in_array($item['link_path'], $find)) {
         $item['plid'] = (int) $root['admin/site-management'];
