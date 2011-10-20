@@ -118,14 +118,16 @@ function customize_admin_menu_menu_link_alter(&$item, $menu) {
       //Root menu items.
       $root = $references['references']['root'];
       //Move menues to their new places in the admin_menu tree.
-      if ($item['options']['extra class'] == 'admin-menu-icon') {
-        //Admin menu generated menu for flush caches, all that to Site Management.
-        $item['plid'] = (int) $root['admin/site-management'];
-        $item['title'] =
-        $item['link_title'] =
-        t('!image !txt', array('!image' => $item['title'], '!txt' => '<div class="global-main-txt">Global Admin</div>'));
-        $item['weight'] = 100;
-        $item['options']['extra class'] .= ' global-admin';
+      if (isset($item['options']['extra class'])) {
+        if ($item['options']['extra class'] == 'admin-menu-icon') {
+          //Admin menu generated menu for flush caches, all that to Site Management.
+          $item['plid'] = (int) $root['admin/site-management'];
+          $item['title'] =
+          $item['link_title'] =
+          t('!image !txt', array('!image' => $item['title'], '!txt' => '<div class="global-main-txt">Global Admin</div>'));
+          $item['weight'] = 100;
+          $item['options']['extra class'] .= ' global-admin';
+        } 
       }
       //Use array paths of items to put them into the Site Management Root.
       //@todo - turn paths into admin settings.
